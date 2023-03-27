@@ -11,7 +11,7 @@
        <p class="card-text">
          {{ book.volumeInfo.authors }}
        </p>
-       <a href="#" @click="addToCart(item)" class="btn btn-primary">Add to Cart</a>
+       <a href="#" @click="addToCart(books)" class="btn btn-primary">Add to Cart</a>
      </div>
    </div>
  </div>
@@ -36,7 +36,6 @@ export default {
      .catch(error => {
        console.log(error);
      });
-  this.getProducts();
  },
 
  computed: {

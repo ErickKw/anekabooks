@@ -7,13 +7,13 @@ import App from "../App.vue";
 
 const Store = createStore({
   state: {
-    cart: [],
     books: [],
+    cart: [],
   },
 
   getters: {
-    cart: (state) => state.cart,
     books: (state) => state.books,
+    cart: (state) => state.cart,
   },
 
   mutations: {
@@ -21,12 +21,12 @@ const Store = createStore({
       state.books = books;
     },
 
-    addItemToCart(state, item) {
-      const addedItem = state.cart.find((books) => books.id === item.id);
+    addItemToCart(state, books) {
+      const addedItem = state.cart.find((books) => books.id === books.id);
       if (addedItem) {
         addedItem.qty++;
       } else {
-        state.cart.push({ ...item, qty: 1 });
+        state.cart.push({ ...books, qty: 1 });
       }
     },
 
@@ -60,8 +60,8 @@ const Store = createStore({
         });
     },
 
-    addToCart({ commit }, item) {
-      commit("addItemToCart", item);
+    addToCart({ commit }, books) {
+      commit("addItemToCart", books);
     },
 
     addQty({ commit }, id) {
