@@ -7,11 +7,11 @@
         :alt="item.title"
       />
       <div class="card-body">
-        <h5 class="card-title">{{item.title}}</h5>
+        <p class="card-title">{{item.title}}</p>
         <p class="card-text">
           {{ item.price }}
         </p>
-        <a href="#" class="btn btn-primary">Add to Cart</a>
+        <a href="#" @click="addToCart(item)" class="btn btn-primary">Add to Cart</a>
       </div>
     </div>
   </div>
@@ -19,15 +19,22 @@
 
 
 <script>
-import products from "../pro/books.json";
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: "ProductList",
-  data() {
-    return {
-      products,
-    };
+  computed: {
+    ...mapGetters(["products"]),
   },
+
+  methods: {
+    ...mapActions(["getProducts", "addToCart"]),
+  },
+
+  mounted() {
+    this.getProducts();
+  }
+
 };
 </script>
 

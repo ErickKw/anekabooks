@@ -2,10 +2,10 @@
   <Header />
   <div class="container">
     <div class="row">
-      <div class="col-8">
-        <ProductList />
+      <div class="col-md-8">
+        <BooksList/>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <Cart/>
       </div>
     </div>
@@ -14,15 +14,16 @@
 
 <script>
 import Header from './components/Header';
-import ProductList from './components/ProductList';
 import Cart from './components/Cart';
+import BooksList from './components/BooksList.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    ProductList,
+    // ProductList,
     Cart,
+    BooksList,
   }
   
 }
